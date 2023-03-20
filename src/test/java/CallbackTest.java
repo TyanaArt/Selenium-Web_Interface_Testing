@@ -37,21 +37,21 @@ public class CallbackTest {
     @Test
     void callbackTest() {
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Иванов Иван");
-        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("88008888888");
+        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+78008888888");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.cssSelector("[button.button]")).click();
-        var actualText = driver.findElement(By.cssSelector("[data-test-id=order success]")).getText().trim();
-        assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", actualText);
+        var actualText = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText().trim();
+        assertEquals("  Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", actualText);
     }
 
     @Test
     void callbackTest2() {
         driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Мамин-Сибиряк Иван");
-        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("88008888888");
+        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+78008888888");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.cssSelector("[button.button]")).click();
-        var actualText = driver.findElement(By.cssSelector("[data-test-id=order success]")).getText().trim();
+        var actualText = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText().trim();
         assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", actualText);
     }
 
@@ -59,10 +59,10 @@ public class CallbackTest {
     void callbackTest3() {
         driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Королёв Иван");
-        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("88008888888");
+        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+78008888888");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.cssSelector("[button.button]")).click();
-        var actualText = driver.findElement(By.cssSelector("[data-test-id=order success]")).getText().trim();
+        var actualText = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText().trim();
         assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", actualText);
     }
 
@@ -72,7 +72,7 @@ public class CallbackTest {
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+78001234567");
         driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.cssSelector("[button.button]")).click();
-        var actualText = driver.findElement(By.cssSelector("[data-test-id=order success]")).getText().trim();
+        var actualText = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText().trim();
         assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", actualText);
     }
 }
