@@ -44,17 +44,6 @@ public class CallbackTest {
         assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", actualText);
     }
 
-    @BeforeEach
-    void createBrowser2() {
-        //driver = new ChromeDriver();
-
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--headless");
-        driver = new ChromeDriver(options);
-    }
-
     @Test
     void callbackTest2() {
         driver.get("http://localhost:9999");
@@ -64,23 +53,6 @@ public class CallbackTest {
         driver.findElement(By.cssSelector("[button.button]")).click();
         var actualText = driver.findElement(By.cssSelector("[data-test-id=order success]")).getText().trim();
         assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", actualText);
-    }
-
-    @AfterEach
-    void tearDown2() {
-        driver.quit();
-        driver = null;
-    }
-
-    @BeforeEach
-    void createBrowser3() {
-        //driver = new ChromeDriver();
-
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--headless");
-        driver = new ChromeDriver(options);
     }
 
     @Test
@@ -94,24 +66,6 @@ public class CallbackTest {
         assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", actualText);
     }
 
-    @AfterEach
-    void tearDown3() {
-        driver.quit();
-        driver = null;
-    }
-
-    @BeforeEach
-    void createBrowser4() {
-        //driver = new ChromeDriver();
-
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--headless");
-        driver = new ChromeDriver(options);
-        driver.get("http://localhost:9999");
-    }
-
     @Test
     void callbackTest4() {
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Иванов Иван");
@@ -121,11 +75,4 @@ public class CallbackTest {
         var actualText = driver.findElement(By.cssSelector("[data-test-id=order success]")).getText().trim();
         assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", actualText);
     }
-
-    @AfterEach
-    void tearDown4() {
-        driver.quit();
-        driver = null;
-    }
-
 }
